@@ -1,7 +1,7 @@
 Spring MVC Basics 1.0.1
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Este repositório contém todas as ferramentas para inicialização de projetos Spring MVC, tais como
 drivers para banco Postgres, Thymeleaf configurado, incluindo a integração com o Spring Security, e
