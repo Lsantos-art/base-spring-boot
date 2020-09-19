@@ -26,6 +26,11 @@ public class MyUserDetails implements UserDetails {
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getRole());
         return Arrays.asList(authority);
     }
+
+    // @Override
+    // public String getEmail() {
+    //     return user.getEmail();
+    // }
  
     @Override
     public String getPassword() {

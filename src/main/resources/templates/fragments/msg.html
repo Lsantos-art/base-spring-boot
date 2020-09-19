@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="alert alert-dismissable" th:fragment="alert (type, message)" th:assert="${!#strings.isEmpty(type) and !#strings.isEmpty(message)}" th:classappend="'alert-' + ${type}">      
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <span th:text="${message}">Test</span>
+    </div>
+</body>
+
+</html>

@@ -26,11 +26,11 @@ public class UserRegisterService {
 
     public User saveUser(User user) throws UserAlreadyExistExceptio {
         
-        if (repository.findByUsername(user.getUsername()) != null) {
-            throw new UserAlreadyExistExceptio("Já existe um usuário com este nome");
+        if (repository.findByEmail(user.getEmail()) != null) {
+            throw new UserAlreadyExistExceptio("Já existe um usuário com este email");
         }
         
-        user.setEnabled(false);
+        user.setEnabled(true);
         user.setRole("user");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         repository.save(user);

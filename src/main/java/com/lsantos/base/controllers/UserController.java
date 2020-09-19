@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @SpringBootApplication
@@ -22,15 +23,27 @@ public class UserController {
     // New User
     @GetMapping("/add-user")
     public ModelAndView addUser() {
+        User user = new User();
         ModelAndView mv = new ModelAndView("Auth/create");
+        mv.addObject("user", user);
         return mv;
     }
 
     // Create User
     @PostMapping("/add-user")
-    public ModelAndView insertUser(User user) throws UserAlreadyExistExceptio {
-        User saveUser = authService.saveUser(user);
-        ModelAndView mv = new ModelAndView("Auth/create");
+    public ModelAndView insertUser(User user){
+        ModelAndView mv = new ModelAndView("auth/create");
+
+        try {
+            authService.saveUser(user);
+        } catch (UserAlreadyExistExceptio e) {
+            mv.addObject("error", e.getMessage());
+            mv.addObject("user", user);
+            return mv;
+        }
+        
+        mv.addObject("success", "Usuário criado com sucesso!");
+        mv.addObject("user", new User());
         return mv;
     }
 
@@ -43,7 +56,7 @@ public class UserController {
     //Index(After logged) 
     @GetMapping("/home")
     public ModelAndView index() {
-        ModelAndView mv = new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("dashboard");
         return mv;
     }
 

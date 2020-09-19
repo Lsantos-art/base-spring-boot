@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Bem vindo!</title>
+</head>
+<body>
+    <div class="alert alert-info" role="alert">
+        <a href="/"><h3>Template engine 1.0.0</h3></a>
+    </div>
+    <div class="container">
+        
+        <div class="my-3">
+            <div sec:authorize="isAuthenticated()">
+                <a class="btn btn-outline-info my-3" href="#" th:href="@{/logout}">Log Out</a>
+                <hr>
+                <span>Este conteúdo somente é mostrado para quem está autenticado.</span>
+                <div sec:authorize="hasRole('user')">Text visible to user.</div>
+                <div th:if="${#strings.contains(#authentication.principal.authorities,'user')}">
+                    <span>Este é um usuário comum...</span>
+                </div>
+                <div th:if="${#strings.contains(#authentication.principal.authorities,'admin')}">
+                    <span>Este é um usuário admin...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" th:if="${error}">
+            <div th:replace="fragments/msg :: alert (type='danger', message=${error})">...</div>
+        </div>
+
+        <div class="container" th:if="${success}">
+            <div th:replace="fragments/msg :: alert (type='success', message=${success})">...</div>
+        </div>
+
+        <!-- Conteúdo irá aqui... -->
+        <div layout:fragment="content">
+            
+        </div>
+
+    </div>
+    <div class="p-3 d-flex justify-content-center mt-3">&copy; 2020 Lsantos-Art Dev</div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
