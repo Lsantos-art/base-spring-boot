@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base Spring</title>
 </head>
 <body>
     <div layout:fragment="content">
@@ -12,44 +11,44 @@
             <div class="container">
               <h1 class="display-4">Spring MVC base</h1>
               <hr>
-              <p class="lead">Estrutura para estudos.</p>
+              <p class="lead">Estrutura pronta para uso.</p>
               <a class="btn btn-outline-info" href="#" th:href="@{/login}">Logar</a>
               <a class="btn btn-outline-info" href="#" th:href="@{/add-user}">Cadastrar</a>
             </div>
         </div>
 
         <div class="row d-flex justify-content-around">
-            <div class="card" style="width: 18rem;">
+            <div class="card my-3" style="width: 18rem;">
                 <img src="images/1.png" class="card-img-top" alt="Spring Security">
                 <div class="card-body">
                   <h5 class="card-title">Spring Security</h5>
-                  <p class="card-text">
+                  <p class="card-text" style="text-align: justify;">
                     Implementa a segurança da aplicação, fornecendo controle de acesso a rotas,
                     login, logout e controle de permissões.
                   </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="https://www.baeldung.com/security-spring" class="btn btn-primary">Saiba mais</a>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
+            <div class="card my-3" style="width: 18rem;">
                 <img src="images/2.png" class="card-img-top" alt="Spring Boot">
                 <div class="card-body">
                   <h5 class="card-title">Spring Boot</h5>
-                  <p class="card-text">
+                  <p class="card-text" style="text-align: justify;">
                     Oferece rápida configuração para projetos MVC no Spring. Ideal para quem necessita mais 
                     foco no serviço, e menos em estrutura.
                   </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="https://spring.io/projects/spring-boot" class="btn btn-primary">Saiba mais</a>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
+            <div class="card my-3" style="width: 18rem;">
                 <img src="images/3.png" class="card-img-top" alt="Thymeleaf">
                 <div class="card-body">
                   <h5 class="card-title">Thymeleaf</h5>
-                  <p class="card-text">
+                  <p class="card-text" style="text-align: justify;">
                     Neste projeto já está embarcado o thymeleaf security dialect 5, que fornece comunicação 
                     entre o Spring Security, permitindo a visualização de dados do usuário logado.
                   </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="https://www.thymeleaf.org/" class="btn btn-primary">Saiba mais</a>
                 </div>
             </div>
         </div>
